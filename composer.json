@@ -1,5 +1,5 @@
 {
-    "name": "gleampt3/nova-date-range-filter",
+    "name": "gleampt3/nova-date-range-intersection-filter",
     "description": "A Laravel Nova date range filter.",
     "keywords": [
         "laravel",
