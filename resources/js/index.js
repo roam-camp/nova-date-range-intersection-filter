@@ -1,6 +1,6 @@
 Nova.booting((Vue, router) => {
     Vue.component(
-        "nova-date-range-filter",
-        require("./components/NovaDateRangeFilter.vue").default
+        "nova-date-range-intersection-filter",
+        require("./components/NovaDateRangeIntersectionFilter.vue").default
     );
 });

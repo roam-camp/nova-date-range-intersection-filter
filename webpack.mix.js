@@ -4,9 +4,9 @@ let path = require("path");
 require("./mix");
 
 mix.setPublicPath("dist")
-    .js("resources/js/index.js", "js/nova-date-range-filter.js")
+    .js("resources/js/index.js", "js/nova-date-range-intersection-filter.js")
     .vue({ version: 3 })
-    .nova("gleampt3/nova-date-range-filter");
+    .nova("gleampt3/nova-date-range-intersection-filter");
 
 mix.alias({
     "laravel-nova": path.join(
