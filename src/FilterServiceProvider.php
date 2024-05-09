@@ -1,6 +1,6 @@
 <?php
 
-namespace GleamPt3\Filters;
+namespace RoamCamp\Filters;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\Events\ServingNova;

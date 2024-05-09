@@ -1,6 +1,6 @@
 <?php
 
-namespace GleamPt3\Filters;
+namespace RoamCamp\Filters;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;

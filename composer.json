@@ -1,5 +1,5 @@
 {
-    "name": "gleampt3/nova-date-range-intersection-filter",
+    "name": "roam-camp/nova-date-range-intersection-filter",
     "description": "A Laravel Nova date range filter.",
     "keywords": [
         "laravel",
@@ -14,13 +14,13 @@
     },
     "autoload": {
         "psr-4": {
-            "GleamPt3\\Filters\\": "src/"
+            "RoamCamp\\Filters\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "GleamPt3\\Filters\\FilterServiceProvider"
+                "RoamCamp\\Filters\\FilterServiceProvider"
             ]
         }
     },
