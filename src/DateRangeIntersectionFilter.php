@@ -3,7 +3,6 @@
 namespace GleamPt3\Filters;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Filters\Filter;
@@ -37,10 +36,10 @@ class DateRangeIntersectionFilter extends Filter
     /**
      * Apply the filter to the given query.
      *
-     * @param NovaRequest $request
-     * @param Builder $query
-     * @param mixed $value
-     * @return Builder
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  mixed  $value
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function apply(NovaRequest $request, $query, $value)
     {
@@ -51,8 +50,8 @@ class DateRangeIntersectionFilter extends Filter
             $to = Carbon::parse($value[1])->endOfDay();
         }
 
-        return $query->where($this->toDateColumn,'>=', $from)
-        ->where($this->fromDateColumn,'<=', $to);
+        return $query->whereRaw('effective_to >= ?', [$from])
+        ->whereRaw('effective_from <= ?', [$to]);;
     }
 
     public function enableTime()
@@ -92,7 +91,7 @@ class DateRangeIntersectionFilter extends Filter
      */
     public function key()
     {
-        return 'timestamp_' . $this->fromDateColumn;
+        return 'timestamp_' . $this->column;
     }
 
     /**
