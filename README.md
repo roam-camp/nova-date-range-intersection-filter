@@ -1,21 +1,21 @@
 ## Date Range Filter for Laravel Nova
 
-Nova filter that displays a Date Range Picker instead of a select, and filters for intersections between two date columns and a selected date range.
+Nova filter that displays a Date Range Picker instead of a select.
 
 ### Install
 
 Run this command in your nova project:
-`composer require gleampt3/nova-date-range-intersection-filter`
+`composer require gleampt3/nova-date-range-filter`
 
 ### How to use
 
-Just use DateRangeIntersectionFilter class instead of Filter
+Just use DateRangeFilter class instead of Filter
 
 ```php
  public function filters(Request $request)
     {
         return [
-            new \GleamPt3\Filters\DateRangeIntersectionFilter('effective_from', "effective_to", 'Created date'),
+            new \GleamPt3\Filters\DateRangeFilter('created_at', 'Created date'),
         ];
     }
 ```

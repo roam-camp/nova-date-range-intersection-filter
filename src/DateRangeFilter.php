@@ -7,33 +7,27 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Filters\Filter;
 
-/**
- * This is a DocBlock.
- */
-class DateRangeIntersectionFilter extends Filter
+class DateRangeFilter extends Filter
 {
     /**
      * The filter's component.
      *
      * @var string
      */
-    public $component = 'nova-date-range-intersection-filter';
+    public $component = 'nova-date-range-filter';
 
-    protected string $fromDateColumn;
-    protected string $toDateColumn;
+    protected string $column;
 
     /**
      * Create a new filter instance.
      *
-     * @param string $fromDateColumn
-     * @param string $toDateColumn
-     * @param null $name
+     * @param  string  $column
+     * @return void
      */
-    public function __construct(string $fromDateColumn, string $toDateColumn, $name = null)
+    public function __construct($column, $name = null)
     {
-        $this->fromDateColumn = $fromDateColumn;
-        $this->toDateColumn = $toDateColumn;
-        $this->name = $name ?? "Date Range";
+        $this->column = $column;
+        $this->name = $name ?? $column;
     }
 
     /**
@@ -53,8 +47,7 @@ class DateRangeIntersectionFilter extends Filter
             $to = Carbon::parse($value[1])->endOfDay();
         }
 
-        return $query->whereRaw('effective_to >= ?', [$from])
-        ->whereRaw('effective_from <= ?', [$to]);;
+        return $query->whereBetween($this->column, [$from, $to]);
     }
 
     public function enableTime()

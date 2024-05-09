@@ -16,7 +16,7 @@ class FilterServiceProvider extends ServiceProvider
     public function boot()
     {
         Nova::serving(function (ServingNova $event) {
-            Nova::script('nova-date-range-intersection-filter', __DIR__ . '/../dist/js/nova-date-range-intersection-filter.js');
+            Nova::script('nova-date-range-filter', __DIR__ . '/../dist/js/nova-date-range-filter.js');
         });
     }
 
