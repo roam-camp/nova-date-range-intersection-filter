@@ -1,4 +1,4 @@
-## Date Range Filter for Laravel Nova
+## Date Range Intersection Filter for Laravel Nova
 
 Nova filter that displays a Date Range Picker instead of a select, and filters for intersections between two date columns and a selected date range.
 
