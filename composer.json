@@ -1,5 +1,5 @@
 {
-    "name": "marshmallow/nova-date-range-filter",
+    "name": "gleampt3/nova-date-range-filter",
     "description": "A Laravel Nova date range filter.",
     "keywords": [
         "laravel",
@@ -14,13 +14,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Marshmallow\\Filters\\": "src/"
+            "GleamPt3\\Filters\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Marshmallow\\Filters\\FilterServiceProvider"
+                "GleamPt3\\Filters\\FilterServiceProvider"
             ]
         }
     },

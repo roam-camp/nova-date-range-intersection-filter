@@ -1,6 +1,6 @@
 <?php
 
-namespace Marshmallow\Filters;
+namespace GleamPt3\Filters;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;

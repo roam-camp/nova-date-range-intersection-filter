@@ -1,6 +1,6 @@
 <?php
 
-namespace Marshmallow\Filters;
+namespace GleamPt3\Filters;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\Events\ServingNova;

@@ -6,7 +6,7 @@ require("./mix");
 mix.setPublicPath("dist")
     .js("resources/js/index.js", "js/nova-date-range-filter.js")
     .vue({ version: 3 })
-    .nova("marshmallow/nova-date-range-filter");
+    .nova("gleampt3/nova-date-range-filter");
 
 mix.alias({
     "laravel-nova": path.join(
