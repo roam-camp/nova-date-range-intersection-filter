@@ -6,7 +6,7 @@
 
         <template #filter>
             <input
-                class="w-full flex form-control form-control-sm form-input form-control-bordered"
+                class="w-full form-control form-input form-control-bordered"
                 :disabled="disabled"
                 :class="{ '!cursor-not-allowed': disabled }"
                 :value="value"
