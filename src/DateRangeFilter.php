@@ -3,6 +3,7 @@
 namespace GleamPt3\Filters;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Filters\Filter;
@@ -16,27 +17,30 @@ class DateRangeFilter extends Filter
      */
     public $component = 'nova-date-range-filter';
 
-    protected string $column;
+    protected string $fromDateColumn;
+    protected string $toDateColumn;
 
     /**
      * Create a new filter instance.
      *
-     * @param  string  $column
-     * @return void
+     * @param string $fromDateColumn
+     * @param string $toDateColumn
+     * @param null $name
      */
-    public function __construct($column, $name = null)
+    public function __construct(string $fromDateColumn, string $toDateColumn, $name = null)
     {
-        $this->column = $column;
-        $this->name = $name ?? $column;
+        $this->fromDateColumn = $fromDateColumn;
+        $this->toDateColumn = $toDateColumn;
+        $this->name = $name ?? "Date Range";
     }
 
     /**
      * Apply the filter to the given query.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @param  mixed  $value
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param NovaRequest $request
+     * @param Builder $query
+     * @param mixed $value
+     * @return Builder
      */
     public function apply(NovaRequest $request, $query, $value)
     {
@@ -47,7 +51,8 @@ class DateRangeFilter extends Filter
             $to = Carbon::parse($value[1])->endOfDay();
         }
 
-        return $query->whereBetween($this->column, [$from, $to]);
+        return $query->where($this->toDateColumn,'>=', $from)
+            ->where($this->fromDateColumn,'<=', $to);
     }
 
     public function enableTime()
@@ -87,7 +92,7 @@ class DateRangeFilter extends Filter
      */
     public function key()
     {
-        return 'timestamp_' . $this->column;
+        return 'timestamp_' . $this->fromDateColumn;
     }
 
     /**
