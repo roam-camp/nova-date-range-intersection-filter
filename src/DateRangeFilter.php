@@ -25,9 +25,9 @@ class DateRangeFilter extends Filter
      *
      * @param string $fromDateColumn
      * @param string $toDateColumn
-     * @param null $name
+     * @param null|string $name
      */
-    public function __construct(string $fromDateColumn, string $toDateColumn, $name = null)
+    public function __construct(string $fromDateColumn, string $toDateColumn, ?string $name = null)
     {
         $this->fromDateColumn = $fromDateColumn;
         $this->toDateColumn = $toDateColumn;
